@@ -26,7 +26,7 @@ const Profile = () => {
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const dispatch = useDispatch();
 
-  console.log(formData.avatar);
+  console.log(formData);
   console.log(filePerc);
   console.log(fileUploadError);
   console.log(currentUser.avatar);
@@ -171,10 +171,10 @@ const Profile = () => {
     <div className='p-3 max-w-lg mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-        <input type="file" ref={fileRef} hidden accept="image/*" onChange={(e) => setFile(e.target.files[0])} />
+        <input type='button' ref={fileRef} hidden accept='image/*' onChange={(e) => setFile(e.target.files[0])} />
         <img
           onClick={() => fileRef.current.click()}
-          src={currentUser.avatar || formData.avatar}
+          src={formData.avatar || currentUser.avatar }
           alt="profile"
           className='rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2' />
         <p className='text-sm self-center'>
